@@ -1,0 +1,19 @@
+dataset:
+  path: data
+  images: images
+  labels: labels
+  names: ['drone'] # Class names
+
+model:
+  name: yolov8n.pt # Pre-trained YOLOv8 nano model
+
+training:
+  imgsz: 640 # Image size
+  epochs: 100 # Number of training epochs
+  batch: 16 # Batch size
+  k_folds: 5 # Number of folds for cross-validation
+  save_dir: ../output # Directory to save results
+
+inference:
+  conf: 0.25 # Confidence threshold
+  iou: 0.45 # IoU threshold 
