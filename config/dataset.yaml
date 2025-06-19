@@ -1,0 +1,7 @@
+path: ../data
+train: images
+val: images
+# test:  # uncomment and add path if you have a test set
+
+nc: 1  # number of classes
+names: ['drone'] # class names
