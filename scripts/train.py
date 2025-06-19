@@ -2,7 +2,7 @@ import os
 import yaml
 from ultralytics import YOLO
 from utils.data_utils import load_data, k_fold_split,check_data
-
+import torch
 def train_model(config_path):
     # Load configuration
     with open(config_path, 'r') as file:
@@ -77,7 +77,8 @@ def train_model(config_path):
 
         # Load YOLO model (re-initialize for each fold to ensure clean state)
         model = YOLO(config['model']['name'])
-
+        device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+        model.to(device)
         # Train the model for the current fold
         model.train(data=fold_dataset_yaml_path,
                     imgsz=config['training']['imgsz'],
