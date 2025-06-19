@@ -1,0 +1,6 @@
+DroneSwarm/
+__pycache__/
+*.mp4
+*.jpg
+*.txt
+git_commit_all.py
